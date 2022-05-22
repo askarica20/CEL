@@ -88,6 +88,7 @@
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "PRIJAVI SE";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLoginClick);
             // 
             // FrmLogin
             // 
@@ -106,6 +107,7 @@
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prijava";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

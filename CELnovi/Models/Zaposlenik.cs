@@ -18,5 +18,10 @@ namespace CELnovi.Models
         {
             return Ime + " " + Prezime;
         }
+
+        public bool ProvjeriLozinku (string lozinka)
+        {
+            return Lozinka == lozinka;
+        }
     }
 }

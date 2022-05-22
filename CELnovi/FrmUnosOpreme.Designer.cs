@@ -265,7 +265,7 @@
             this.btnPopis.BackColor = System.Drawing.Color.Lime;
             this.btnPopis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPopis.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnPopis.Location = new System.Drawing.Point(408, 405);
+            this.btnPopis.Location = new System.Drawing.Point(396, 405);
             this.btnPopis.Name = "btnPopis";
             this.btnPopis.Size = new System.Drawing.Size(125, 41);
             this.btnPopis.TabIndex = 21;
