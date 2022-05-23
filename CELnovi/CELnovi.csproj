@@ -68,10 +68,12 @@
     <Compile Include="FrmOprema.Designer.cs">
       <DependentUpon>FrmOprema.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\IzvorFinanciranja.cs" />
     <Compile Include="Models\Oprema.cs" />
     <Compile Include="Models\Zaposlenik.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\RepozitorijIzvoraFinanciranja.cs" />
     <Compile Include="Repositories\RepozitorijOpreme.cs" />
     <Compile Include="Repositories\RepozitorijZaposlenika.cs" />
     <EmbeddedResource Include="FrmLogin.resx">

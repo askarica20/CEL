@@ -2,6 +2,7 @@
 using DBLayer;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,24 +15,25 @@ namespace CELnovi.Repositories
         {
             Oprema oprema = null;
             string sql = $"SELECT * FROM Opreme WHERE Id = {id}";
-            // DB.SetConfiguration("askarica20_DB", "askarica20", "]Sk{MEC4");
+            DB.SetConfiguration("askarica20_DB", "askarica20", "]Sk{MEC4");
             DB.OpenConnection();
-            /* var reader = DB.GetDataReader(sql);
+             var reader = DB.GetDataReader(sql);
              if (reader.HasRows)
              {
                  reader.Read();
                  oprema = KreirajObjekt(reader);
                  reader.Close();
              }
-             DB.CloseConnection();*/
+             DB.CloseConnection();
             return oprema;
         }
-        /*
+        
         public static List<Oprema> GetOpremas(){
             
             var opreme = new List<Oprema>();
 
-            string sql = "SELECT * FROM Opreme";
+            string sql = "SELECT * FROM Oprema";
+            DB.SetConfiguration("askarica20_DB", "askarica20", "]Sk{MEC4"); // AK NE DELA MAKNI OVO
             DB.OpenConnection();
             var reader = DB.GetDataReader(sql);
             while (reader.Read())
@@ -41,7 +43,7 @@ namespace CELnovi.Repositories
             }
 
             reader.Close();
-            //DB.CloseConnection();
+            DB.CloseConnection();
 
             return opreme;
         }
@@ -49,8 +51,8 @@ namespace CELnovi.Repositories
         private static Oprema KreirajObjekt(SqlDataReader reader)
         {
             int id = int.Parse(reader["Id"].ToString());
-            string nazivOpreme = reader["NazivOpreme"].ToString();
-            string vrstaOpreme = reader["VrstaOpreme"].ToString();
+            string naziv = reader["Naziv"].ToString(); // ovak se zovu columnsi u onom za bazu
+            string vrsta = reader["Vrsta"].ToString();
             string datVrPrimke = reader["DatVrPrimke"].ToString(); 
             string nazivProjekta = reader["NazivProjekta"].ToString();
             string izvorFinanciranja = reader["IzvorFinanciranja"].ToString();
@@ -61,8 +63,8 @@ namespace CELnovi.Repositories
             var oprema = new Oprema
             {
                 Id = id,
-                NazivOpreme = nazivOpreme,
-                VrstaOpreme = vrstaOpreme,
+                Naziv = naziv,
+                Vrsta = vrsta,
                 DatVrPrimke = datVrPrimke,
                 OpisOpreme = opisOpreme,
                 NazivProjekta = nazivProjekta,
@@ -73,6 +75,6 @@ namespace CELnovi.Repositories
 
             return oprema;
         }
-        */
+       
     }
 }

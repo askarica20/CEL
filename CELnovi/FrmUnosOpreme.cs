@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CELnovi.Models;
+using CELnovi.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +26,8 @@ namespace CELnovi
 
         private void FrmUnosOpreme_Load(object sender, EventArgs e)
         {
-
+            List<IzvorFinanciranja> izvoriFinanciranja = RepozitorijIzvoraFinanciranja.GetIzvoreFinanciranja();
+            cboIzvorFinanciranja.DataSource = izvoriFinanciranja;
         }
 
         private void btnPopisClick(object sender, EventArgs e)

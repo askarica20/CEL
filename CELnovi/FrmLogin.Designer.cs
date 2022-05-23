@@ -66,7 +66,7 @@
             this.txtKorisnickoIme.Name = "txtKorisnickoIme";
             this.txtKorisnickoIme.Size = new System.Drawing.Size(412, 31);
             this.txtKorisnickoIme.TabIndex = 2;
-            this.txtKorisnickoIme.Text = "Korisničko ime";
+            this.txtKorisnickoIme.Text = "mribar";
             // 
             // txtLozinka
             // 
@@ -76,7 +76,9 @@
             this.txtLozinka.Name = "txtLozinka";
             this.txtLozinka.Size = new System.Drawing.Size(412, 31);
             this.txtLozinka.TabIndex = 3;
-            this.txtLozinka.Text = "Lozinka";
+            this.txtLozinka.Text = "1234";
+            this.txtLozinka.UseSystemPasswordChar = true;
+            this.txtLozinka.TextChanged += new System.EventHandler(this.txtLozinka_TextChanged);
             // 
             // btnLogin
             // 

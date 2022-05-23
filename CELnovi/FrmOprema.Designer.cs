@@ -28,33 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgvOprema = new System.Windows.Forms.DataGridView();
+            this.btnUnesi2 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOprema)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvOprema
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(138, 80);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(470, 289);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvOprema.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvOprema.BackgroundColor = System.Drawing.SystemColors.ControlDark;
+            this.dgvOprema.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOprema.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dgvOprema.Location = new System.Drawing.Point(63, 54);
+            this.dgvOprema.Name = "dgvOprema";
+            this.dgvOprema.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOprema.Size = new System.Drawing.Size(1043, 289);
+            this.dgvOprema.TabIndex = 0;
+            // 
+            // btnUnesi2
+            // 
+            this.btnUnesi2.BackColor = System.Drawing.Color.Lime;
+            this.btnUnesi2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUnesi2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnUnesi2.ForeColor = System.Drawing.Color.Black;
+            this.btnUnesi2.Location = new System.Drawing.Point(859, 362);
+            this.btnUnesi2.Name = "btnUnesi2";
+            this.btnUnesi2.Size = new System.Drawing.Size(227, 43);
+            this.btnUnesi2.TabIndex = 1;
+            this.btnUnesi2.Text = "UNESI OPREMU";
+            this.btnUnesi2.UseVisualStyleBackColor = false;
+            this.btnUnesi2.Click += new System.EventHandler(this.btnUnesi2Click);
             // 
             // FrmOprema
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ClientSize = new System.Drawing.Size(1173, 450);
+            this.Controls.Add(this.btnUnesi2);
+            this.Controls.Add(this.dgvOprema);
             this.Name = "FrmOprema";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmOprema";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FrmOprema_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOprema)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvOprema;
+        private System.Windows.Forms.Button btnUnesi2;
     }
 }

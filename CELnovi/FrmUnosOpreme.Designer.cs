@@ -304,6 +304,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmUnosOpreme";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unos opreme";
             this.Load += new System.EventHandler(this.FrmUnosOpreme_Load);
             this.ResumeLayout(false);

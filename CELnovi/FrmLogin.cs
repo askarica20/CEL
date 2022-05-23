@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 namespace CELnovi
 {
+    // NA KRAJU PROMIJENI TEKST NA LOGIN TEXTFIELDOVIMA U KORISNICKO IME I LOZINKU, OVAK JE SAMO ZA BRZI UNOS
     public partial class FrmLogin : Form
     {
         public static Zaposlenik LogiraniZaposlenik { get; set; }
@@ -54,6 +55,11 @@ namespace CELnovi
                 }
             }
         
+        }
+
+        private void txtLozinka_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
