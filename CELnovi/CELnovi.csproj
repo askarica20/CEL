@@ -68,7 +68,7 @@
     <Compile Include="FrmOprema.Designer.cs">
       <DependentUpon>FrmOprema.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\IzvorFinanciranja.cs" />
+    <Compile Include="Models\IzvorFinanciranjaKlasa.cs" />
     <Compile Include="Models\Oprema.cs" />
     <Compile Include="Models\Zaposlenik.cs" />
     <Compile Include="Program.cs" />

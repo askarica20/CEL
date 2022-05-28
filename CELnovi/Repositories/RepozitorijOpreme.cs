@@ -55,7 +55,8 @@ namespace CELnovi.Repositories
             string vrsta = reader["Vrsta"].ToString();
             string datVrPrimke = reader["DatVrPrimke"].ToString(); 
             string nazivProjekta = reader["NazivProjekta"].ToString();
-            string izvorFinanciranja = reader["IzvorFinanciranja"].ToString();
+            IzvorFinanciranjaKlasa IzvorFinanciranja = RepozitorijIzvoraFinanciranja.GetIzvorFinanciranja(int.Parse(reader["IzvorFinanciranja"].ToString())); // mozda ipak idfinanc
+
             string opisOpreme = reader["OpisOpreme"].ToString();
             string osobaNabave = reader["OsobaNabave"].ToString();
             string osobaPrimke = reader["OsobaPrimke"].ToString();
@@ -68,13 +69,35 @@ namespace CELnovi.Repositories
                 DatVrPrimke = datVrPrimke,
                 OpisOpreme = opisOpreme,
                 NazivProjekta = nazivProjekta,
-                IzvorFinanciranja = izvorFinanciranja,
+                IzvorFinanciranja = IzvorFinanciranja, // ni s idem ne dela
                 OsobaNabave = osobaNabave,
                 OsobaPrimke = osobaPrimke
             };
 
             return oprema;
         }
-       
+
+        public static void UmetniOpremu(Oprema oprema)
+        {// FinanciranjeId = IzvorFinanciranja
+            string sql = $"INSERT INTO Oprema ( Id, Naziv, Vrsta, DatVrPrimke, OpisOpreme, NazivProjekta, IzvorFinanciranja, OsobaNabave, OsobaPrimke) VALUES" +
+                $"( '{oprema.Id}', '{oprema.Naziv}', '{oprema.Vrsta}', '{oprema.DatVrPrimke}', '{oprema.OpisOpreme}', '{oprema.NazivProjekta}', '{oprema.IzvorFinanciranja.Id}',  '{oprema.OsobaNabave}', '{oprema.OsobaPrimke}')";
+            // ak ostavim defaultni izvor, tu baca error
+            
+            DB.SetConfiguration("askarica20_DB", "askarica20", "]Sk{MEC4");
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql); // kad odaberem neki drugi izvor, tu baca error
+            DB.CloseConnection();
+
+        }
+
+        /*
+        public static void InsertanjeOpreme(Oprema oprema) // nez jel dela
+        { 
+            string sql = $"INSERT INTO Oprema (Id, Naziv, Vrsta, DatVrPrimke, OpisOpreme, NazivProjekta, IzvorFinanciranja, OsobaNabave, OsobaPrimke) " +
+                $"VALUES (txtId, txtNazivOpreme, txtvrstaOpreme, txtDatVrPrimke, txtNazivProjekta, cboIzvorFinanciranja, txtOpisOpreme, txtOsobaNabave, txtOsobaPrimke";
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
+        }*/
     }
 }

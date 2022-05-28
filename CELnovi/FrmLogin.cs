@@ -44,9 +44,9 @@ namespace CELnovi
             {
                 if (LogiraniZaposlenik != null && LogiraniZaposlenik.ProvjeriLozinku(txtLozinka.Text))
                 {
-                    FrmUnosOpreme frmUnosOpreme = new FrmUnosOpreme();
+                    FrmOprema frmOprema = new FrmOprema();
                     Hide();
-                    frmUnosOpreme.ShowDialog();
+                    frmOprema.ShowDialog();
                     Close();
                 }
                 else

@@ -13,9 +13,14 @@ namespace CELnovi.Models
         public string Vrsta { get; set; }
         public string DatVrPrimke { get; set; }
         public string NazivProjekta { get; set; }
-        public string IzvorFinanciranja { get; set; } // probaj slozit da se tu ne ispise id, nego preko vanjskog kljuca naziv izvora, ko string
+        public IzvorFinanciranjaKlasa IzvorFinanciranja { get; set; }
         public string OpisOpreme { get; set; }
         public string OsobaNabave { get; set; }
         public string OsobaPrimke { get; set; }
+
+        public override string ToString()
+        {
+            return Id.ToString();
+        }
     }
 }

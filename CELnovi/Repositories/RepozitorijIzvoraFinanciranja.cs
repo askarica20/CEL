@@ -12,9 +12,9 @@ namespace CELnovi.Repositories
     public class RepozitorijIzvoraFinanciranja
     {
         
-        public static IzvorFinanciranja GetIzvorFinanciranja(int id)
+        public static IzvorFinanciranjaKlasa GetIzvorFinanciranja(int id)
         {
-            IzvorFinanciranja izvorFinanciranja = null;
+            IzvorFinanciranjaKlasa izvorFinanciranjaKlasa = null;
             string sql = $"SELECT * FROM Izvorifinanciranja WHERE Id = {id}";
             DB.SetConfiguration("askarica20_DB", "askarica20", "]Sk{MEC4");
             DB.OpenConnection();
@@ -22,44 +22,44 @@ namespace CELnovi.Repositories
             if (reader.HasRows)
             {
                 reader.Read();
-                izvorFinanciranja = KreirajObjekt(reader);
+                izvorFinanciranjaKlasa = KreirajObjekt(reader);
                 reader.Close();
             }
             DB.CloseConnection();
-            return izvorFinanciranja;
+            return izvorFinanciranjaKlasa;
         }
 
-        public static List<IzvorFinanciranja> GetIzvoreFinanciranja()
+        public static List<IzvorFinanciranjaKlasa> GetIzvoreFinanciranja()
         {
-            List<IzvorFinanciranja> izvoriFinanciranja = new List<IzvorFinanciranja>();
-
-            string sql = $"SELECT * FROM Izvorifinanciranja";
+            // List<IzvorFinanciranjaKlasa> izvoriFinanciranja = new List<IzvorFinanciranjaKlasa>();
+            var izvorFinanciranjaKlasa = new List<IzvorFinanciranjaKlasa>();
+            string sql = "SELECT * FROM Izvorifinanciranja"; // jel tu treba $
             DB.SetConfiguration("askarica20_DB", "askarica20", "]Sk{MEC4"); // mozda smeta
             DB.OpenConnection();
             var reader = DB.GetDataReader(sql);
             while (reader.Read())
             {
-                IzvorFinanciranja izvorFinanciranja = KreirajObjekt(reader);
-                izvoriFinanciranja.Add(izvorFinanciranja);
+                IzvorFinanciranjaKlasa izvorFinanciranja = KreirajObjekt(reader);
+                izvorFinanciranjaKlasa.Add(izvorFinanciranja);
             }
             reader.Close();
             DB.CloseConnection();
-            return izvoriFinanciranja;
+            return izvorFinanciranjaKlasa;
         }
     
-        private static IzvorFinanciranja KreirajObjekt(SqlDataReader reader)
+        private static IzvorFinanciranjaKlasa KreirajObjekt(SqlDataReader reader)
         {
             int id = int.Parse(reader["Id"].ToString());
             string iznos = reader["Iznos"].ToString();
             string naziv = reader["Naziv"].ToString();
 
-            IzvorFinanciranja izvorFinanciranja = new IzvorFinanciranja
+            var izvorFinanciranjaKlasa = new IzvorFinanciranjaKlasa
             {
                 Id = id,
                 Iznos = iznos,
                 Naziv = naziv
             };
-            return izvorFinanciranja;
+            return izvorFinanciranjaKlasa;
         }
     }
 }

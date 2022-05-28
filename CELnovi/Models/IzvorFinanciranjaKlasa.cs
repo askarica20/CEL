@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CELnovi.Models
 {
-    public class IzvorFinanciranja
+    public class IzvorFinanciranjaKlasa
     {
         public int Id { get; set; }
         public string Iznos { get; set; }
