@@ -69,7 +69,7 @@ namespace CELnovi.Repositories
                 DatVrPrimke = datVrPrimke,
                 OpisOpreme = opisOpreme,
                 NazivProjekta = nazivProjekta,
-                IzvorFinanciranja = IzvorFinanciranja, // ni s idem ne dela
+                IzvorFinanciranja = IzvorFinanciranja, 
                 OsobaNabave = osobaNabave,
                 OsobaPrimke = osobaPrimke
             };
@@ -88,6 +88,11 @@ namespace CELnovi.Repositories
             DB.ExecuteCommand(sql); // kad odaberem neki drugi izvor, tu baca error
             DB.CloseConnection();
 
+        }
+
+
+        public static void IzbrisiOpremu(Oprema oprema)
+        {
         }
 
         /*

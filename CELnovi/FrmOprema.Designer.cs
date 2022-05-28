@@ -31,6 +31,7 @@
             this.dgvOprema = new System.Windows.Forms.DataGridView();
             this.btnUnesi2 = new System.Windows.Forms.Button();
             this.btnUredi = new System.Windows.Forms.Button();
+            this.lblObrisi = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOprema)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,6 +48,7 @@
             this.dgvOprema.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOprema.Size = new System.Drawing.Size(1043, 289);
             this.dgvOprema.TabIndex = 0;
+            this.dgvOprema.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOprema_CellContentClick);
             // 
             // btnUnesi2
             // 
@@ -76,12 +78,25 @@
             this.btnUredi.UseVisualStyleBackColor = false;
             this.btnUredi.Click += new System.EventHandler(this.bntUrediClick);
             // 
+            // lblObrisi
+            // 
+            this.lblObrisi.AutoSize = true;
+            this.lblObrisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblObrisi.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblObrisi.Location = new System.Drawing.Point(63, 362);
+            this.lblObrisi.Name = "lblObrisi";
+            this.lblObrisi.Size = new System.Drawing.Size(334, 40);
+            this.lblObrisi.TabIndex = 3;
+            this.lblObrisi.Text = "TIPS AND TRICKS: \r\nza brisanje reda iz baze klikni na njega :)";
+            this.lblObrisi.Click += new System.EventHandler(this.label1_Click);
+            // 
             // FrmOprema
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1173, 450);
+            this.Controls.Add(this.lblObrisi);
             this.Controls.Add(this.btnUredi);
             this.Controls.Add(this.btnUnesi2);
             this.Controls.Add(this.dgvOprema);
@@ -91,6 +106,7 @@
             this.Load += new System.EventHandler(this.FrmOprema_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOprema)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -99,5 +115,6 @@
         private System.Windows.Forms.DataGridView dgvOprema;
         private System.Windows.Forms.Button btnUnesi2;
         private System.Windows.Forms.Button btnUredi;
+        private System.Windows.Forms.Label lblObrisi;
     }
 }

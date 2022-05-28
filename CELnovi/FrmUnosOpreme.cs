@@ -76,6 +76,11 @@ namespace CELnovi
             RepozitorijOpreme.UmetniOpremu(novaOprema);
 
             MessageBox.Show("Uspješan unos!");
+
+            FrmOprema frmOprema = new FrmOprema(); // refreshanje
+            Hide();
+            frmOprema.ShowDialog();
+            Close();
         }
     }
 }
