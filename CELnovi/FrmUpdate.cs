@@ -29,10 +29,13 @@ namespace CELnovi
 
         private void FrmUpdate_Load(object sender, EventArgs e)
         {
+            // .Show(oprema.IzvorFinanciranja.ToString()); // OK I TU DELA
+            // MessageBox.Show(oprema.IzvorFinanciranja.Id.ToString());// OK I TU ISTO DELA
             Text = oprema.Naziv; // gore napiše kojeg smo odabrali OK OVO DELA OMG KAKAV SAM JA GAS
-            List<IzvorFinanciranjaKlasa> izvoriFinanciranja = RepozitorijIzvoraFinanciranja.GetIzvoreFinanciranja();
+            List<IzvorFinanciranjaKlasa> izvorFinanciranjaUpdate = RepozitorijIzvoraFinanciranja.GetIzvoreFinanciranja();
+            cboIzvorFinanciranjaUpdate.DataSource = izvorFinanciranjaUpdate; // da se prikaze dropdown opet
             // List<Oprema> opreme = RepozitorijOpreme.GetOpremas();
-            //cboOpr.DataSource = opreme; // otvori se padajući za aktivnosti
+            // cboIzvorFinanciranjaUpdate.DataSource = opreme; // otvori se padajući za aktivnosti
             txtIdUpdate.Text = oprema.Id.ToString();
             txtNazivOpremeUpdate.Text = oprema.Naziv; // prikaz odabrane opreme u polju u formi
             txtVrstaOpremeUpdate.Text= oprema.Vrsta;
@@ -41,7 +44,18 @@ namespace CELnovi
             txtOpisOpremeUpdate.Text = oprema.OpisOpreme;
             txtOsobaNabaveUpdate.Text = oprema.OsobaNabave;
             txtOsobaPrimkeUpdate.Text = oprema.OsobaPrimke;
-            // cboIzvorFinanciranjaUpdate.SelectedIndex = oprema.IzvorFinanciranja.Id;            
+
+            var tekstIzComboboxa = RepozitorijIzvoraFinanciranja.GetIzvorFinanciranja(oprema.IzvorFinanciranja.Id).ToString();
+            cboIzvorFinanciranjaUpdate.Text = tekstIzComboboxa; // ovo vraca taj tekst, al se nemre promijenit nikaj
+
+            // novaOprema.IzvorFinanciranja = RepozitorijIzvoraFinanciranja.GetIzvorFinanciranja(cboIzvorFinanciranja.SelectedIndex+1);
+
+
+            // cboIzvorFinanciranjaUpdate.SelectedIndex = oprema.IzvorFinanciranja.Id.ToString());
+            // cboIzvorFinanciranjaUpdate.SelectedIndex = int.Parse(oprema.izvorFinanciranja.Id.ToString());
+            //MessageBox.Show(RepozitorijIzvoraFinanciranja.GetIzvorFinanciranja(oprema.IzvorFinanciranja.Id).ToString());
+            //MessageBox.Show(RepozitorijIzvoraFinanciranja.GetIzvorFinanciranja(oprema.IzvorFinanciranja.Id));
+            //cboIzvorFinanciranjaUpdate.SelectedIndex = RepozitorijIzvoraFinanciranja.GetIzvorFinanciranja(oprema.IzvorFinanciranja.Id);
         }
 
         private void btnOdustani_Click(object sender, EventArgs e)
@@ -63,7 +77,7 @@ namespace CELnovi
             string opisOpremeUpdate = txtOpisOpremeUpdate.Text;
             string osobaNabaveUpdate = txtOsobaNabaveUpdate.Text;
             string osobaPrimkeUpdate = txtOsobaPrimkeUpdate.Text;
-
+            // MessageBox.Show(izvorFinanciranjaUpdate.ToString());
             Oprema updateanaOprema = new Oprema(); // stvara se novi objekt da se moze poslat ko objekt u funkciju za updateanje
 
             updateanaOprema.Id = idUpdate;
@@ -71,7 +85,9 @@ namespace CELnovi
             updateanaOprema.Vrsta = vrstaUpdate;
             updateanaOprema.DatVrPrimke = datVrPrimkeUpdate;
             updateanaOprema.NazivProjekta = nazivProjektaUpdate;
-            // updateanaOprema.IzvorFinanciranja = RepozitorijIzvoraFinanciranja.GetIzvorFinanciranja(cboIzvorFinanciranjaUpdate.SelectedIndex + 1); // +1 jer ide od nultog ova metoda
+            updateanaOprema.IzvorFinanciranja = RepozitorijIzvoraFinanciranja.GetIzvorFinanciranja(cboIzvorFinanciranjaUpdate.SelectedIndex + 1); // +1 jer ide od nultog ova metoda
+            // MessageBox.Show("updateanaOprema.IzvorFinanciranja ="+(cboIzvorFinanciranjaUpdate.SelectedIndex + 1).ToString());
+            // MessageBox.Show("nastavak:" + RepozitorijIzvoraFinanciranja.GetIzvorFinanciranja(cboIzvorFinanciranjaUpdate.SelectedIndex + 1));
             updateanaOprema.OpisOpreme = opisOpremeUpdate;
             updateanaOprema.OsobaNabave = osobaNabaveUpdate;
             updateanaOprema.OsobaPrimke = osobaPrimkeUpdate;

@@ -222,6 +222,7 @@
             this.txtIdUpdate.BackColor = System.Drawing.Color.DarkGray;
             this.txtIdUpdate.Location = new System.Drawing.Point(342, 58);
             this.txtIdUpdate.Name = "txtIdUpdate";
+            this.txtIdUpdate.ReadOnly = true;
             this.txtIdUpdate.Size = new System.Drawing.Size(353, 20);
             this.txtIdUpdate.TabIndex = 22;
             // 

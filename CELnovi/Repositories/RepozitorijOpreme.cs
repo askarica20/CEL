@@ -48,6 +48,27 @@ namespace CELnovi.Repositories
             return opreme;
         }
 
+
+        public static List<Oprema> GetOpremasSearch(string ime)
+        {
+            var opreme = new List<Oprema>();
+
+            string sql = $"SELECT * FROM Oprema WHERE Naziv LIKE '%{ime}%'"; // % represents zero, one, or multiple characters
+            DB.SetConfiguration("askarica20_DB", "askarica20", "]Sk{MEC4"); 
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+            while (reader.Read())
+            {
+                Oprema oprema = KreirajObjekt(reader);
+                opreme.Add(oprema);
+            }
+
+            reader.Close();
+            DB.CloseConnection();
+
+            return opreme;
+        }
+
         private static Oprema KreirajObjekt(SqlDataReader reader)
         {
             int id = int.Parse(reader["Id"].ToString());
@@ -93,7 +114,7 @@ namespace CELnovi.Repositories
             // string sql = $"UPDATE Opreme SET Id = '{oprema.Id}', Naziv = '{ oprema.Naziv}', Vrsta = '{ oprema.Naziv}', DatVrPrimke = '{ oprema.Naziv}', OpisOpreme = '{ oprema.Naziv}', NazivProjekta = '{ oprema.Naziv}', IzvorFinanciranja = '{ oprema.Naziv}', OsobaNabave = '{ oprema.Naziv}', OsobaPrimke = '{ oprema.Naziv}' WHERE Id = {evaluation.Activity.Id};
 
             // string sql = $"UPDATE Opreme SET Id = '{oprema.Id}', Naziv = '{oprema.Naziv}' WHERE Id = '{oprema.Id}";
-            string sql = $"UPDATE Oprema SET Id = '{oprema.Id}', Naziv = '{ oprema.Naziv}', Vrsta = '{ oprema.Vrsta}', DatVrPrimke = '{ oprema.DatVrPrimke}', OpisOpreme = '{ oprema.OpisOpreme}', NazivProjekta = '{ oprema.NazivProjekta}',  OsobaNabave = '{ oprema.Naziv}', OsobaPrimke = '{ oprema.OsobaPrimke}' WHERE Id = '{oprema.Id}'";
+            string sql = $"UPDATE Oprema SET Id = '{oprema.Id}', Naziv = '{ oprema.Naziv}', IzvorFinanciranja = '{oprema.IzvorFinanciranja.Id}',  Vrsta = '{ oprema.Vrsta}', DatVrPrimke = '{ oprema.DatVrPrimke}', OpisOpreme = '{ oprema.OpisOpreme}', NazivProjekta = '{ oprema.NazivProjekta}',  OsobaNabave = '{ oprema.OsobaNabave}', OsobaPrimke = '{ oprema.OsobaPrimke}' WHERE Id = '{oprema.Id}'";
 
             DB.OpenConnection();
             DB.ExecuteCommand(sql); 
