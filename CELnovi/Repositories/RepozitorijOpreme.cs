@@ -78,31 +78,31 @@ namespace CELnovi.Repositories
         }
 
         public static void UmetniOpremu(Oprema oprema)
-        {// FinanciranjeId = IzvorFinanciranja
+        {
             string sql = $"INSERT INTO Oprema ( Id, Naziv, Vrsta, DatVrPrimke, OpisOpreme, NazivProjekta, IzvorFinanciranja, OsobaNabave, OsobaPrimke) VALUES" +
                 $"( '{oprema.Id}', '{oprema.Naziv}', '{oprema.Vrsta}', '{oprema.DatVrPrimke}', '{oprema.OpisOpreme}', '{oprema.NazivProjekta}', '{oprema.IzvorFinanciranja.Id}',  '{oprema.OsobaNabave}', '{oprema.OsobaPrimke}')";
-            // ak ostavim defaultni izvor, tu baca error
             
             DB.SetConfiguration("askarica20_DB", "askarica20", "]Sk{MEC4");
             DB.OpenConnection();
-            DB.ExecuteCommand(sql); // kad odaberem neki drugi izvor, tu baca error
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
+        }
+
+        public static void UpdateOpreme(Oprema oprema)
+        {
+            // string sql = $"UPDATE Opreme SET Id = '{oprema.Id}', Naziv = '{ oprema.Naziv}', Vrsta = '{ oprema.Naziv}', DatVrPrimke = '{ oprema.Naziv}', OpisOpreme = '{ oprema.Naziv}', NazivProjekta = '{ oprema.Naziv}', IzvorFinanciranja = '{ oprema.Naziv}', OsobaNabave = '{ oprema.Naziv}', OsobaPrimke = '{ oprema.Naziv}' WHERE Id = {evaluation.Activity.Id};
+
+            // string sql = $"UPDATE Opreme SET Id = '{oprema.Id}', Naziv = '{oprema.Naziv}' WHERE Id = '{oprema.Id}";
+            string sql = $"UPDATE Oprema SET Id = '{oprema.Id}', Naziv = '{ oprema.Naziv}', Vrsta = '{ oprema.Vrsta}', DatVrPrimke = '{ oprema.DatVrPrimke}', OpisOpreme = '{ oprema.OpisOpreme}', NazivProjekta = '{ oprema.NazivProjekta}',  OsobaNabave = '{ oprema.Naziv}', OsobaPrimke = '{ oprema.OsobaPrimke}' WHERE Id = '{oprema.Id}'";
+
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql); 
             DB.CloseConnection();
 
         }
-
 
         public static void IzbrisiOpremu(Oprema oprema)
         {
         }
-
-        /*
-        public static void InsertanjeOpreme(Oprema oprema) // nez jel dela
-        { 
-            string sql = $"INSERT INTO Oprema (Id, Naziv, Vrsta, DatVrPrimke, OpisOpreme, NazivProjekta, IzvorFinanciranja, OsobaNabave, OsobaPrimke) " +
-                $"VALUES (txtId, txtNazivOpreme, txtvrstaOpreme, txtDatVrPrimke, txtNazivProjekta, cboIzvorFinanciranja, txtOpisOpreme, txtOsobaNabave, txtOsobaPrimke";
-            DB.OpenConnection();
-            DB.ExecuteCommand(sql);
-            DB.CloseConnection();
-        }*/
     }
 }

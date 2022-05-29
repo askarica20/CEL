@@ -68,6 +68,12 @@
     <Compile Include="FrmOprema.Designer.cs">
       <DependentUpon>FrmOprema.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdate.Designer.cs">
+      <DependentUpon>FrmUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\IzvorFinanciranjaKlasa.cs" />
     <Compile Include="Models\Oprema.cs" />
     <Compile Include="Models\Zaposlenik.cs" />
@@ -84,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUnosOpreme.resx">
       <DependentUpon>FrmUnosOpreme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdate.resx">
+      <DependentUpon>FrmUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

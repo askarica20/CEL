@@ -24,6 +24,7 @@ namespace CELnovi
         private void FrmOprema_Load(object sender, EventArgs e)
         {
             PrikaziOpremu();
+            //MessageBox.Show(RepozitorijZaposlenika.GetZaposlenik());
         }
 
         private void PrikaziOpremu()
@@ -53,32 +54,23 @@ namespace CELnovi
             }
         }
 
-        private void bntUrediClick(object sender, EventArgs e)
+        private void bntUrediClick(object sender, EventArgs e) // UPDATEANJE
         {
             Oprema odabranaOprema = dgvOprema.CurrentRow.DataBoundItem as Oprema;
-            int indexReda = dgvOprema.CurrentCell.RowIndex; // krece od 0
-            DataGridViewRow row = dgvOprema.CurrentCell.OwningRow;
-            
+            // int indexReda = dgvOprema.CurrentCell.RowIndex; // krece od 0
+            // DataGridViewRow row = dgvOprema.CurrentCell.OwningRow;
 
-            if (odabranaOprema != null)
+            if (odabranaOprema != null) // ak smo kliknuli na nekog
             {
-                
-                
-                //FrmUnosOpreme frmUnosOpreme = new FrmUnosOpreme(odabranaOprema);
-                //frmUnosOpreme.ShowDialog();
+                FrmUpdate frmUpdate = new FrmUpdate(odabranaOprema); // odabrani se salje preko konstruktora - kak ga poslati dodati ko parametar i onda napravit novu globalnu varjablu u konstruktoru !!!! JAKO BITNO
+                Hide();
+                frmUpdate.ShowDialog();
+                Close();
             }
 
-            /* // OK OVO DELA AL NE BAS DOBRO
-        string sql = $"DELETE FROM Oprema WHERE Id='{indexReda+1}'";
-
-        DB.SetConfiguration("askarica20_DB", "askarica20", "]Sk{MEC4");
-        DB.OpenConnection();
-        DB.ExecuteCommand(sql); // kad odaberem neki drugi izvor, tu baca error
-        DB.CloseConnection();
-      */
         }
 
-        private void dgvOprema_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvOprema_CellContentClick(object sender, DataGridViewCellEventArgs e) // BRISANJE
         {
             string message = "Izbrisati ovaj red?";
             string title = "Potvrda";
@@ -87,7 +79,7 @@ namespace CELnovi
             if (result == DialogResult.Yes)
             {
                 int id = Convert.ToInt32(dgvOprema.Rows[e.RowIndex].Cells["Id"].FormattedValue.ToString());
-                MessageBox.Show(id.ToString()); // ok ovo vraca id od reda
+                // MessageBox.Show(id.ToString()); // ok ovo vraca id od reda
 
                 string sql = $"DELETE FROM Oprema WHERE Id='{id}'";
 
@@ -102,6 +94,8 @@ namespace CELnovi
                 Close();
             }
         }
+
+        
 
         private void label1_Click(object sender, EventArgs e)
         {

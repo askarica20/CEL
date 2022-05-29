@@ -35,8 +35,9 @@ namespace CELnovi
         private void btnLoginClick(object sender, EventArgs e)
         {
             LogiraniZaposlenik = RepozitorijZaposlenika.GetZaposlenik(txtKorisnickoIme.Text);
+            var Logirani = LogiraniZaposlenik;
 
-            if(txtKorisnickoIme.Text == "")
+            if (txtKorisnickoIme.Text == "")
             {
                 MessageBox.Show("Lozinka nije unesena!", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

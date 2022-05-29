@@ -70,11 +70,11 @@
             this.btnUredi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUredi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnUredi.ForeColor = System.Drawing.Color.Black;
-            this.btnUredi.Location = new System.Drawing.Point(691, 362);
+            this.btnUredi.Location = new System.Drawing.Point(681, 362);
             this.btnUredi.Name = "btnUredi";
-            this.btnUredi.Size = new System.Drawing.Size(138, 43);
+            this.btnUredi.Size = new System.Drawing.Size(162, 43);
             this.btnUredi.TabIndex = 2;
-            this.btnUredi.Text = "UREDI";
+            this.btnUredi.Text = "UPDATE";
             this.btnUredi.UseVisualStyleBackColor = false;
             this.btnUredi.Click += new System.EventHandler(this.bntUrediClick);
             // 
