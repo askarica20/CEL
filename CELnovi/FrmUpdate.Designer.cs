@@ -50,6 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSpremi = new System.Windows.Forms.Button();
             this.btnOdustani = new System.Windows.Forms.Button();
+            this.btnIzbrisi = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cboIzvorFinanciranjaUpdate
@@ -273,12 +274,26 @@
             this.btnOdustani.UseVisualStyleBackColor = false;
             this.btnOdustani.Click += new System.EventHandler(this.btnOdustani_Click);
             // 
+            // btnIzbrisi
+            // 
+            this.btnIzbrisi.BackColor = System.Drawing.Color.Lime;
+            this.btnIzbrisi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIzbrisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnIzbrisi.Location = new System.Drawing.Point(45, 410);
+            this.btnIzbrisi.Name = "btnIzbrisi";
+            this.btnIzbrisi.Size = new System.Drawing.Size(125, 41);
+            this.btnIzbrisi.TabIndex = 42;
+            this.btnIzbrisi.Text = "IZBRISI";
+            this.btnIzbrisi.UseVisualStyleBackColor = false;
+            this.btnIzbrisi.Click += new System.EventHandler(this.btnIzbrisi_Click);
+            // 
             // FrmUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(732, 472);
+            this.Controls.Add(this.btnIzbrisi);
             this.Controls.Add(this.btnOdustani);
             this.Controls.Add(this.btnSpremi);
             this.Controls.Add(this.cboIzvorFinanciranjaUpdate);
@@ -334,5 +349,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSpremi;
         private System.Windows.Forms.Button btnOdustani;
+        private System.Windows.Forms.Button btnIzbrisi;
     }
 }

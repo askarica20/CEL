@@ -85,5 +85,31 @@ namespace CELnovi
             frmOprema.ShowDialog();
             Close();
         }
+
+        private void btnIzbrisi_Click(object sender, EventArgs e)
+        {
+            string message = "Izbrisati ovaj red?";
+            string title = "Potvrda";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                int idUpdate = int.Parse(txtIdUpdate.Text);
+                Oprema updateanaOprema = new Oprema();
+                updateanaOprema.Id = idUpdate;
+                RepozitorijOpreme.IzbrisiOpremu(updateanaOprema.Id);
+
+                FrmOprema frmOprema = new FrmOprema();
+                Hide();
+                MessageBox.Show("Uspješno brisanje!");
+                frmOprema.ShowDialog();
+                Close();
+            }
+
+
+            
+        }
+
+
     }
 }

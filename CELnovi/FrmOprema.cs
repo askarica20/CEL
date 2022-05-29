@@ -69,8 +69,8 @@ namespace CELnovi
             }
 
         }
-
-        private void dgvOprema_CellContentClick(object sender, DataGridViewCellEventArgs e) // BRISANJE
+        /*
+        private void dgvOprema_CellContentClick(object sender, DataGridViewCellEventArgs e) // BRISANJE NA CLICK NA CELIJU
         {
             string message = "Izbrisati ovaj red?";
             string title = "Potvrda";
@@ -94,7 +94,7 @@ namespace CELnovi
                 Close();
             }
         }
-
+        */
         
 
         private void label1_Click(object sender, EventArgs e)

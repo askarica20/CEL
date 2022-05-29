@@ -101,8 +101,13 @@ namespace CELnovi.Repositories
 
         }
 
-        public static void IzbrisiOpremu(Oprema oprema)
+        public static void IzbrisiOpremu(int id)
         {
+            //string sql = $"UPDATE Oprema SET Id = '{oprema.Id}', Naziv = '{ oprema.Naziv}', Vrsta = '{ oprema.Vrsta}', DatVrPrimke = '{ oprema.DatVrPrimke}', OpisOpreme = '{ oprema.OpisOpreme}', NazivProjekta = '{ oprema.NazivProjekta}',  OsobaNabave = '{ oprema.Naziv}', OsobaPrimke = '{ oprema.OsobaPrimke}' WHERE Id = '{oprema.Id}'";
+            string sql = $"DELETE FROM Oprema WHERE Id='{id}'";
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
         }
     }
 }
