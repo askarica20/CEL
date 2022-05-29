@@ -24,7 +24,6 @@ namespace CELnovi
         private void FrmOprema_Load(object sender, EventArgs e)
         {
             PrikaziOpremu();
-            //MessageBox.Show(RepozitorijZaposlenika.GetZaposlenik());
         }
 
         private void PrikaziOpremu()
@@ -46,7 +45,7 @@ namespace CELnovi
         
         private void btnUnesi2Click(object sender, EventArgs e)
         {
-            Oprema odabranaOprema = dgvOprema.CurrentRow.DataBoundItem as Oprema; // nez ovo mozda isto smeta idk
+            Oprema odabranaOprema = dgvOprema.CurrentRow.DataBoundItem as Oprema; 
             if (odabranaOprema != null)
             {
                 FrmUnosOpreme frmUnosOpreme = new FrmUnosOpreme(odabranaOprema);
@@ -57,21 +56,19 @@ namespace CELnovi
         private void bntUrediClick(object sender, EventArgs e) // UPDATEANJE
         {
             Oprema odabranaOprema = dgvOprema.CurrentRow.DataBoundItem as Oprema;
-            // int indexReda = dgvOprema.CurrentCell.RowIndex; // krece od 0
-            // DataGridViewRow row = dgvOprema.CurrentCell.OwningRow;
-
+   
             if (odabranaOprema != null) // ak smo kliknuli na nekog
             {
-                FrmUpdate frmUpdate = new FrmUpdate(odabranaOprema); // odabrani se salje preko konstruktora - kak ga poslati dodati ko parametar i onda napravit novu globalnu varjablu u konstruktoru !!!! JAKO BITNO
+                FrmUpdate frmUpdate = new FrmUpdate(odabranaOprema); // slanje preko konstruktora
                 Hide();
                 frmUpdate.ShowDialog();
                 Close();
             }
 
         }
-        /*
+       
         private void dgvOprema_CellContentClick(object sender, DataGridViewCellEventArgs e) // BRISANJE NA CLICK NA CELIJU
-        {
+        { /*
             string message = "Izbrisati ovaj red?";
             string title = "Potvrda";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
@@ -92,12 +89,12 @@ namespace CELnovi
                 Hide();
                 frmOprema.ShowDialog();
                 Close();
-            }
+            } */
         }
-        */
-        
+       
 
-        private void label1_Click(object sender, EventArgs e)
+
+            private void label1_Click(object sender, EventArgs e)
         {
 
         }
